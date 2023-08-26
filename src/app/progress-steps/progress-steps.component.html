@@ -1,0 +1,17 @@
+<div class="progress-steps-container">
+    <div class="progress-steps">
+      <ng-container *ngFor="let step of steps; let i = index">
+        <div class="step-container">
+          <div class="step" [ngClass]="{ 'active': i === currentStep }">
+            {{ i + 1 }}
+          </div>
+          <div class="line" *ngIf="i !== steps.length - 1"></div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="buttons">
+      <button class="btn btn-primary" [disabled]="currentStep === 0" (click)="prevStep()">Previous</button>
+      <button class="btn btn-primary" [disabled]="currentStep === steps.length - 1" (click)="nextStep()">Next</button>
+    </div>
+  </div>
+  
